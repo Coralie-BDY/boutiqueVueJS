@@ -5,7 +5,7 @@ import router from './router';
 import axios from 'axios';
 
 Vue.config.productionTip = false
-axios.defaults.baseURL = 'https://dyma-formation.firebaseio.com/';
+axios.defaults.baseURL = 'https://boutique-exo.firebaseio.com/';
 Vue.prototype.$http = axios;
 
 Object.keys(Filters).forEach((f) => {
@@ -30,9 +30,9 @@ export const eventBus = new Vue({
     },
     addProduct(product) {
       this.$http.post('products.json', product)
-        .then(() => {
-          this.products = [ ...this.products, { ...product, id: this.products.length + 1 + '' } ];
-          this.$emit('update:products', this.products);
+         .then(() => {
+              this.products = [ ...this.products, { ...product,  id: this.products.length + 1 + '' } ];
+              this.$emit('update:products', this.products);
         });
     },
     addProducts(products) {
